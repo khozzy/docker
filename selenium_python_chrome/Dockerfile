@@ -65,7 +65,7 @@ RUN set -x \
 		-exec rm -rf '{}' + \
 	&& rm -rf /usr/src/python
 
-RUN pip install -I selenium==2.45.0
+RUN pip install -I selenium==2.45.0 unittest-xml-reporting==1.12.0
 
 #==================
 # Xvfb + init scripts
