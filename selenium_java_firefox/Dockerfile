@@ -6,6 +6,13 @@ ENV FIREFOX_VERSION 38.0+build3-0ubuntu0.14.04.1
 ENV MAVEN_VERSION 3.3.3
 ENV MAVEN_HOME /usr/share/maven
 ENV PATH $MAVEN_HOME/bin:$PATH
+ENV UID 1000
+ENV GID 1000
+
+#================================================
+# Add dedicated user
+#================================================
+RUN groupadd -r firefox -g $GID && useradd -u $UID -r -m -g firefox firefox
 
 #================================================
 # Customize sources for apt-get
@@ -50,3 +57,5 @@ RUN chmod a+x /etc/init.d/xvfb
 
 ADD libs/xvfb-daemon-run /usr/bin/xvfb-daemon-run
 RUN chmod a+x /usr/bin/xvfb-daemon-run
+
+USER firefox
