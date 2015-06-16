@@ -8,8 +8,8 @@ ENV PYTHON_VERSION 2.7.10
 ENV PYTHON_PIP_VERSION 7.0.3
 ENV LANG C.UTF-8
 ENV DISPLAY :99
-ENV UID 1001
-ENV GID 1001
+ENV UID 1000
+ENV GID 1000
 
 #================================================
 # Add dedicated user
