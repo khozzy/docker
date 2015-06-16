@@ -8,6 +8,13 @@ ENV PYTHON_VERSION 2.7.10
 ENV PYTHON_PIP_VERSION 7.0.3
 ENV LANG C.UTF-8
 ENV DISPLAY :99
+ENV UID 1001
+ENV GID 1001
+
+#================================================
+# Add dedicated user
+#================================================
+RUN groupadd -r chrome -g $GID && useradd -u $UID -r -m -g chrome chrome
 
 #================================================
 # Customize sources for apt-get
@@ -75,3 +82,10 @@ RUN chmod a+x /etc/init.d/xvfb
 
 ADD libs/xvfb-daemon-run /usr/bin/xvfb-daemon-run
 RUN chmod a+x /usr/bin/xvfb-daemon-run
+
+#============================
+# Clean up
+#============================
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* ~/.config/google-chrome
+
+USER chrome
