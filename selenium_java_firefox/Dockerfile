@@ -2,7 +2,7 @@ FROM ubuntu:14.04
 
 MAINTAINER Khozzy <khozzy@gmail.com>
 
-ENV FIREFOX_VERSION 38.0+build3-0ubuntu0.14.04.1
+ENV FIREFOX_VERSION 41.0.2+build2-0ubuntu0.14.04.1
 ENV MAVEN_VERSION 3.3.3
 ENV MAVEN_HOME /usr/share/maven
 ENV PATH $MAVEN_HOME/bin:$PATH
